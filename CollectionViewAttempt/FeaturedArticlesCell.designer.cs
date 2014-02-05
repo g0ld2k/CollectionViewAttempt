@@ -13,6 +13,12 @@ namespace CollectionViewAttempt
 	partial class FeaturedArticlesCell
 	{
 		[Outlet]
+		MonoTouch.UIKit.UITextView detailsTextView { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UIImageView imageView { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel titleLabel { get; set; }
 		
 		void ReleaseDesignerOutlets ()
@@ -20,6 +26,16 @@ namespace CollectionViewAttempt
 			if (titleLabel != null) {
 				titleLabel.Dispose ();
 				titleLabel = null;
+			}
+
+			if (detailsTextView != null) {
+				detailsTextView.Dispose ();
+				detailsTextView = null;
+			}
+
+			if (imageView != null) {
+				imageView.Dispose ();
+				imageView = null;
 			}
 		}
 	}

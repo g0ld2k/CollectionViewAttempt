@@ -8,7 +8,7 @@ namespace CollectionViewAttempt
 {
 	public partial class FeaturedArticlesView : UICollectionViewController
 	{
-		static NSString cellId = new NSString ("ArticleCell");
+		static NSString cellId = new NSString ("FeaturedArticlesCell");
 		List<FeaturedArticles> fa;
 		FeaturedArticlesSingleton fas;
 
@@ -16,18 +16,11 @@ namespace CollectionViewAttempt
 			get { return UIDevice.CurrentDevice.UserInterfaceIdiom == UIUserInterfaceIdiom.Phone; }
 		}
 
-		public FeaturedArticlesView ()
-			: base (UserInterfaceIdiomIsPhone ? "FeaturedArticlesView_iPhone" : "FeaturedArticlesView_iPad", null)
-		{
-		}
-
-		public FeaturedArticlesView (UICollectionViewLayout layout) : base (layout)
+		public FeaturedArticlesView (IntPtr handle ) : base (handle)
 		{
 			fa = new List<FeaturedArticles> ();
 			fas = FeaturedArticlesSingleton.Instance;
 			fa = fas.getArticles ();
-
-			CollectionView.ContentInset = new UIEdgeInsets (10, 10, 10, 10);
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -43,7 +36,6 @@ namespace CollectionViewAttempt
 			base.ViewDidLoad ();
 			
 			// Perform any additional setup after loading the view, typically from a nib.
-			CollectionView.RegisterClassForCell (typeof(FeaturedArticlesCell), cellId);
 		}
 
 		public override int GetItemsCount (UICollectionView collectionView, int section)
@@ -57,6 +49,8 @@ namespace CollectionViewAttempt
 			string articleImageUrl = fa [indexPath.Row].EncodedAbsoluteURL;
 
 			articleCell.UpdateCell (new Uri (articleImageUrl));
+			articleCell.setTitle (fa [indexPath.Row].Title);
+			articleCell.setDetails (fa [indexPath.Row].Description);
 
 			return articleCell;
 		}

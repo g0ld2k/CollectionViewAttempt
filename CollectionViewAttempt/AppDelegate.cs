@@ -12,15 +12,11 @@ namespace CollectionViewAttempt
 	[Register ("AppDelegate")]
 	public partial class AppDelegate : UIApplicationDelegate
 	{
-		FeaturedArticlesView fav;
-		UICollectionViewFlowLayout flowLayout;
-		UIWindow window;
-
 		// class-level declarations
-//		public override UIWindow Window {
-//			get;
-//			set;
-//		}
+		public override UIWindow Window {
+			get;
+			set;
+		}
 		// This method is invoked when the application is about to move from active to inactive state.
 		// OpenGL applications should use this method to pause.
 		public override void OnResignActivation (UIApplication application)
@@ -39,17 +35,6 @@ namespace CollectionViewAttempt
 		// This method is called when the application is about to terminate. Save data, if needed.
 		public override void WillTerminate (UIApplication application)
 		{
-		}
-
-		public override void FinishedLaunching (UIApplication application)
-		{
-			window = new UIWindow (UIScreen.MainScreen.Bounds);
-
-			flowLayout = new UICollectionViewFlowLayout ();
-			fav = new FeaturedArticlesView (flowLayout);
-
-			window.RootViewController = fav;
-			window.MakeKeyAndVisible ();
 		}
 	}
 }

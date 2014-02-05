@@ -112,10 +112,6 @@
     <Compile Include="CollectionViewAttemptViewController.designer.cs">
       <DependentUpon>CollectionViewAttemptViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="FeaturedArticlesController.cs" />
-    <Compile Include="FeaturedArticlesController.designer.cs">
-      <DependentUpon>FeaturedArticlesController.cs</DependentUpon>
-    </Compile>
     <Compile Include="FeaturedArticlesCell.cs" />
     <Compile Include="FeaturedArticlesCell.designer.cs">
       <DependentUpon>FeaturedArticlesCell.cs</DependentUpon>
